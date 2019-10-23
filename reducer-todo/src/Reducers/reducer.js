@@ -6,17 +6,17 @@ export const initialState = [
       }
 ]
 
-export function reducer(state, action) {
+export function Reducer(state, action) {
 
     switch (action.type) {
       case "ADD_TODO":
         return state.concat({
               todo: action.payload,
               completed: false,
-              id: Date.now()
+              id: new Date()
                    
           });
-          case "TOGGLE_COMPLETE":
+          case "TOGGLE_COMPLETED":
             return state.map(todo => {
               if(todo.id === action.payload) {
                 return {...todo, completed: !todo.completed};
